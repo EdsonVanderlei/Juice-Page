@@ -84,7 +84,7 @@ export default function Home() {
         node.style.backgroundImage = `url(${Fruits[index].bg})`;
       }
     },
-    [index]
+    [index, Fruits]
   );
   return (
     <main
