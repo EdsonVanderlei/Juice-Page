@@ -11,7 +11,7 @@ import LycheeBackground from "../../public/LycheeBackground.png";
 import OrangeBackground from "../../public/OrangeBackground.png";
 import OrangeJuiceBigSize from "../../public/OrangeJuiceBigSize.png";
 import { Poppins } from "next/font/google";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const poppins = Poppins({
   weight: "500",
@@ -30,30 +30,31 @@ export default function Home() {
 
   const tabItem = useRef<HTMLDivElement>(null);
 
-  const Fruits = [
-    {
-      bg: MangoBackground.src,
-      image: MangoJuiceSmallSize.src,
-      title: "Mango",
-      text: "Pure Mango Bliss: Crafted from the finest, sun-ripened mangoes, our Mango Juice is bursting with the natural sweetness and succulent goodness of this exotic fruit. Every glass of our juice embodies the essence of a sun-kissed mango orchard, delivering an unparalleled taste experience that will leave you craving for more.",
-      color: "bg-orange-600",
-    },
-    {
-      bg: LycheeBackground.src,
-      image: LycheeJuiceSmallSize.src,
-      title: "Lychee",
-      text: "Taste of Tropical Bliss: Our Lychee Juice is a celebration of the unique lychee fruit's natural essence. With a harmonious blend of sweetness and floral undertones, it offers a distinctive flavor that will leave you longing for more. Our expert juicers skillfully extract the purest juices from the juiciest lychees, ensuring every drop is brimming with authentic taste and goodness.",
-      color: "bg-pink-600",
-    },
-    {
-      bg: OrangeBackground.src,
-      image: OrangeJuiceSmallSize.src,
-      title: "Orange",
-      text: "Harvesting Nature's Each glass of Orange Juice is a celebration of nature's bountiful harvest. Handpicked from lush orchards, the ripest and juiciest oranges are carefully selected to ensure the finest quality. With each bottle, you experience the essence of sun-drenched groves and the care put into crafting this thirst-quenching masterpiece.",
-      color: "bg-yellow-600",
-    },
-  ];
-
+  const Fruits = useMemo(() => {
+    return [
+      {
+        bg: MangoBackground.src,
+        image: MangoJuiceSmallSize.src,
+        title: "Mango",
+        text: "Pure Mango Bliss: Crafted from the finest, sun-ripened mangoes, our Mango Juice is bursting with the natural sweetness and succulent goodness of this exotic fruit. Every glass of our juice embodies the essence of a sun-kissed mango orchard, delivering an unparalleled taste experience that will leave you craving for more.",
+        color: "bg-orange-600",
+      },
+      {
+        bg: LycheeBackground.src,
+        image: LycheeJuiceSmallSize.src,
+        title: "Lychee",
+        text: "Taste of Tropical Bliss: Our Lychee Juice is a celebration of the unique lychee fruit's natural essence. With a harmonious blend of sweetness and floral undertones, it offers a distinctive flavor that will leave you longing for more. Our expert juicers skillfully extract the purest juices from the juiciest lychees, ensuring every drop is brimming with authentic taste and goodness.",
+        color: "bg-pink-600",
+      },
+      {
+        bg: OrangeBackground.src,
+        image: OrangeJuiceSmallSize.src,
+        title: "Orange",
+        text: "Harvesting Nature's Each glass of Orange Juice is a celebration of nature's bountiful harvest. Handpicked from lush orchards, the ripest and juiciest oranges are carefully selected to ensure the finest quality. With each bottle, you experience the essence of sun-drenched groves and the care put into crafting this thirst-quenching masterpiece.",
+        color: "bg-yellow-600",
+      },
+    ];
+  }, []);
   const [index, setIndex] = useState<number>(0);
 
   const rotate = ["rotate-90", "rotate-0", "-rotate-90"];
