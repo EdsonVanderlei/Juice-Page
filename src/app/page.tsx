@@ -140,7 +140,7 @@ export default function Home() {
             <div
               ref={rotateRef}
               className={
-                "w-[65vw] transition-transform  absolute duration-700 bg-opacity-30 bg-white -bottom-[110%] left-1/2 -translate-x-1/2 rounded-full " +
+                "w-[65vw] transition-transform  absolute duration-700 bg-opacity-30 bg-white -bottom-[112%] left-1/2 -translate-x-1/2 rounded-full " +
                 rotate[index]
               }
             >
