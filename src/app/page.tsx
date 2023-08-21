@@ -117,7 +117,7 @@ export default function Home() {
             <div className="flex items-center w-full gap-5 relative">
               {Fruits.map((_, i) => {
                 return (
-                  <div ref={tabItem}>
+                  <div ref={tabItem} key={_.text}>
                     <Image
                       className="cursor-pointer"
                       onClick={() => setIndex(i)}
